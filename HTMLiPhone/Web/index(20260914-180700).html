@@ -1,1 +1,413 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="محرك عربي لرصد إشارات شراء العملات الرقمية سبوت سوينج، مع سعر دخول وثلاثة أهداف ووقف خسارة.">
+  <title>مدار | إشارات سبوت سوينج</title>
+  <style>
+    :root{--bg:#0c100f;--panel:#141a17;--panel2:#19211c;--line:#29342c;--text:#eff5ef;--muted:#a3b0a6;--green:#c7f589;--soft:#23341d;--red:#ff9b9b;--amber:#efd08e;--font:Tahoma,"Segoe UI",Arial,sans-serif}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.8 var(--font)}button,select,input{font:inherit}button,select{touch-action:manipulation}button,a,input,select,summary{-webkit-tap-highlight-color:transparent}button{cursor:pointer}button:disabled{cursor:wait;opacity:.5}button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--green);outline-offset:5px}a{color:var(--green);text-underline-offset:4px}[hidden]{display:none!important}.num{font-family:"Segoe UI",Arial,sans-serif;font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate;display:inline-block}.muted{color:var(--muted)}.good{color:var(--green)}.bad{color:var(--red)}.warm{color:var(--amber)}.shell{width:min(1240px,calc(100% - 64px));margin:auto}.top{border-bottom:1px solid var(--line)}.top-inner{display:flex;align-items:center;justify-content:space-between;min-height:90px;gap:20px}.identity{display:flex;align-items:center;gap:14px}.logo{width:42px;height:42px;display:grid;place-items:center;background:var(--green);border-radius:12px;color:#172010;font-size:25px;font-weight:700;line-height:1}.brand{font-size:25px;font-weight:700;line-height:1.2}.brand-en{font:10px/1.5 "Segoe UI",Arial,sans-serif;letter-spacing:3.2px;color:var(--muted);margin-top:6px}.top-tags{display:flex;align-items:center;gap:18px;font-size:13px;color:var(--muted)}.pill{border:1px solid var(--line);padding:5px 12px;border-radius:30px;white-space:nowrap;font-size:12px;letter-spacing:.5px}.source-dot{width:7px;height:7px;border-radius:100%;display:inline-block;background:#7d8c80;margin-left:7px}.source-dot.live{background:var(--green)}main{padding-top:35px;padding-bottom:35px}.intro{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:25px}.eyebrow{color:var(--green);font-size:12px;letter-spacing:.7px;margin:0 0 7px}h1{font-size:clamp(28px,3.3vw,40px);line-height:1.45;margin:0;font-weight:700;letter-spacing:-1px}.intro p{color:var(--muted);font-size:14px;margin:8px 0 0}.interval{color:var(--muted);font-size:13px;white-space:nowrap;padding-bottom:5px}.interval b{color:var(--text);font-weight:500}.controls{border:1px solid var(--line);background:var(--panel);border-radius:16px;padding:23px}.control-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1.12fr;gap:18px;align-items:end}.field{display:flex;flex-direction:column;gap:8px;font-size:14px}.field>span{color:var(--muted)}select{width:100%;border:1px solid #3b473e;background:#0f1511;color:var(--text);border-radius:8px;padding:11px 13px;min-height:49px;font-size:15px;cursor:pointer}.primary{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--green);color:#16200f;font-weight:700;border:0;border-radius:8px;min-height:49px;padding:11px 22px;transition:background .15s}.primary:hover{background:#d8f9b0}.primary.stop{background:#2e392f;color:var(--text);border:1px solid #546653}.scan-icon{font-size:24px;line-height:1;font-weight:400}.control-bottom{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:19px;padding-top:17px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}.checks{display:flex;gap:22px;flex-wrap:wrap}.check{display:inline-flex;align-items:center;gap:9px;cursor:pointer}.check input{accent-color:var(--green);width:16px;height:16px;margin:0;cursor:pointer}.progress{height:3px;border-radius:3px;overflow:hidden;background:#243023;margin-top:19px}.progress>div{height:100%;width:0;background:var(--green);transition:width .25s}.scan-status{font-size:13px;min-height:24px;color:var(--muted);margin-top:8px;display:flex;justify-content:space-between;gap:12px}.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:26px 0 28px;border-bottom:1px solid var(--line)}.stat{padding:0 25px;border-left:1px solid var(--line)}.stat:first-child{padding-right:0}.stat:last-child{border-left:0}.stat-label{color:var(--muted);font-size:13px}.stat-value{font:500 29px/1.6 "Segoe UI",Arial,sans-serif;margin-top:4px}.stat-value.arabic{font-family:var(--font);font-size:20px;line-height:2.3}.stat small{display:block;font-size:12px;color:var(--muted)}.notice{margin-top:23px;border:1px solid #665331;background:#241f15;border-radius:10px;padding:13px 17px;color:var(--amber);font-size:14px;overflow-wrap:anywhere}.notice.error{background:#271b1b;border-color:#633b3b;color:#ffb4b4}.results-heading{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:28px 0 18px}h2{font-size:20px;margin:0}.heading-title{display:flex;align-items:center;gap:12px}.count{font:13px/1.3 "Segoe UI",Arial,sans-serif;background:var(--panel2);border:1px solid var(--line);padding:4px 9px;border-radius:5px}.results-heading>span{font-size:12px;color:var(--muted)}.empty{border:1px dashed #344137;border-radius:14px;min-height:265px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px 20px;text-align:center;background:linear-gradient(180deg,#141b16 0%,#101511 100%)}.empty-mark{width:46px;height:46px;display:grid;place-items:center;font-size:31px;color:var(--green);margin-bottom:8px;font-weight:400;line-height:1}.empty h3{font-size:18px;margin:3px 0 8px}.empty p{max-width:560px;font-size:14px;color:var(--muted);margin:0;line-height:1.95}.empty .small{font-size:12px;margin-top:14px}.signals{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start}.signal{background:var(--panel);border:1px solid var(--line);border-top:2px solid #a5d771;border-radius:12px;padding:24px;min-width:0}.signal.expired{border-top-color:#687768}.signal-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.pair{font-family:"Segoe UI",Arial,sans-serif;line-height:1.3;direction:ltr;text-align:right}.pair strong{font-size:26px;letter-spacing:-.5px;overflow-wrap:anywhere}.pair span{font-size:12px;color:var(--muted)}.buy-tag{display:inline-flex;align-items:center;gap:7px;background:var(--soft);color:var(--green);font-size:12px;border-radius:5px;padding:4px 9px;margin-bottom:10px}.signal.expired .buy-tag{color:var(--amber);background:#302b1c}.setup-type{font-size:13px;color:var(--muted);margin-top:7px}.change{font-size:13px;white-space:nowrap}.entry-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0;padding-bottom:19px;border-bottom:1px solid var(--line)}.entry-row .label{font-size:13px;color:var(--muted)}.price{font:600 clamp(19px,2vw,25px)/1.5 "Segoe UI",Arial,sans-serif;overflow-wrap:anywhere;max-width:100%}.subvalue{display:block;font-size:12px;color:var(--muted);margin-top:3px}.targets{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.target{border-left:1px solid var(--line);padding-left:9px}.target:last-child{border:0;padding-left:0}.target-label{font-size:12px;color:var(--muted);margin-bottom:7px}.target-price{display:block;font:600 17px/1.7 "Segoe UI",Arial,sans-serif;overflow-wrap:anywhere;max-width:100%}.target-return{font-size:14px;color:var(--green)}.r-label{font-size:11px;color:var(--muted);margin-inline-start:5px}.chips{display:flex;flex-wrap:wrap;gap:7px;margin:21px 0 16px}.chip{border:1px solid var(--line);padding:3px 8px;border-radius:5px;color:var(--muted);font-size:12px}.signal-times{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;display:grid;gap:4px}.signal-times time{color:#c9d4cb}.ttl{color:var(--green)}.signal-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:16px;font-size:12px}.copy{border:1px solid #40503f;border-radius:6px;background:transparent;color:var(--text);padding:6px 12px;font-size:12px}.copy:hover{background:var(--panel2)}.manual-copy{display:block;width:100%;min-height:210px;margin-top:12px;padding:10px;background:var(--bg);color:var(--text);border:1px solid var(--line);border-radius:6px;font:13px/1.8 var(--font);resize:vertical}.method{margin-top:28px;border-top:1px solid var(--line);padding-top:18px}.method summary{cursor:pointer;color:var(--muted);font-size:14px;width:fit-content}.method-content{font-size:14px;color:var(--muted);padding:11px 0;max-width:940px}.method-content p{margin:9px 0}.method-content ul{padding-right:22px;margin:12px 0}.method-content li{margin-bottom:9px}.method-content strong{color:var(--text);font-weight:500}.foot{margin-top:23px;display:flex;justify-content:space-between;gap:20px;font-size:12px;color:#a0afa2;border-top:1px solid var(--line);padding-top:20px}.foot p{margin:0;max-width:860px}.version{color:#8e9e90;white-space:nowrap;direction:ltr;font-family:"Segoe UI",Arial,sans-serif}.noscript{padding:18px;margin:20px;color:var(--amber);border:1px solid var(--line)}
+    @media(max-width:900px){.shell{width:calc(100% - 40px)}.control-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.stat{padding:0 16px}.signal{padding:19px}.signal-head{gap:8px}.targets{gap:8px}.target-price{font-size:15px}.price{font-size:21px}.control-bottom{align-items:flex-start;flex-direction:column;gap:10px}.top-tags .pill{display:none}}
+    @media(max-width:640px){.shell{width:calc(100% - 32px)}.top-inner{min-height:77px}.top-tags{font-size:11px;gap:0}.logo{width:36px;height:36px;font-size:23px}.brand{font-size:22px}.brand-en{font-size:9px}.identity{gap:10px}main{padding-top:25px}.intro{display:block;margin-bottom:22px}h1{font-size:31px}.intro p{font-size:13px}.interval{font-size:12px;margin-top:14px;padding:0}.controls{padding:17px;border-radius:12px}.control-grid{gap:14px 11px}.field{font-size:12px}select{font-size:13px;padding:10px 8px}.primary{font-size:14px;padding:10px}.checks{gap:13px;font-size:12px}.check input{width:17px;height:17px}.control-bottom{font-size:12px}.scan-status{font-size:12px;flex-wrap:wrap}.summary{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:19px;padding:24px 0}.stat{padding:0 17px}.stat:first-child,.stat:nth-child(3){padding-right:0}.stat:nth-child(2){border:0}.stat-value{font-size:27px}.stat-label{font-size:12px}.stat small{font-size:11px}.stat-value.arabic{font-size:19px}.results-heading{align-items:flex-start;margin-top:23px}.results-heading>span{max-width:110px;text-align:left;line-height:1.7;font-size:11px}h2{font-size:18px}.signals{grid-template-columns:1fr;gap:16px}.signal{padding:19px}.target-price{font-size:16px}.empty{min-height:260px}.empty h3{font-size:16px}.empty p{font-size:13px}.foot{display:block;font-size:11px}.version{display:block;margin-top:14px}.method summary{font-size:13px}.method-content{font-size:13px}.notice{font-size:13px}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <header class="top"><div class="shell top-inner">
+    <div class="identity"><div class="logo" aria-hidden="true">م</div><div><div class="brand">مدار</div><div class="brand-en" dir="ltr">MADAR / SWING</div></div></div>
+    <div class="top-tags"><span class="pill num">SPOT ONLY</span><span><span class="source-dot" id="sourceDot"></span><span id="connection">بانتظار الفحص</span></span></div>
+  </div></header>
+  <noscript><div class="noscript">يحتاج هذا المحرك إلى تفعيل JavaScript في المتصفح لجلب الأسعار وحساب الإشارات.</div></noscript>
+  <main class="shell">
+    <div class="intro"><div><div class="eyebrow">محرك إشارات العملات الرقمية</div><h1>رادار الشراء</h1><p>فرص سبوت سوينج، بثلاثة أهداف ممتدة ووقف خسارة واضح.</p></div><div class="interval">إشارة <b class="num">4H</b> <span aria-hidden="true"> / </span> تأكيد الاتجاه <b class="num">1D</b></div></div>
+    <section class="controls" aria-label="إعدادات فحص السوق">
+      <div class="control-grid">
+        <label class="field"><span>نطاق الفحص · الأعلى سيولة</span><select id="universe"><option value="30">30 عملة</option><option value="50" selected>50 عملة</option><option value="100">100 عملة</option><option value="150">150 عملة</option></select></label>
+        <label class="field"><span>الحد الأدنى للهدف الثالث</span><select id="minTarget"><option value="15">+15%</option><option value="20" selected>+20%</option><option value="30">+30%</option><option value="40">+40%</option></select></label>
+        <label class="field"><span>أقصى بُعد لوقف الخسارة</span><select id="maxStop"><option value="6">6% من سعر الدخول</option><option value="8" selected>8% من سعر الدخول</option><option value="10">10% من سعر الدخول</option><option value="12">12% من سعر الدخول</option></select></label>
+        <button id="scanBtn" class="primary" type="button"><span class="scan-icon" aria-hidden="true">⌕</span><span id="scanLabel">فحص السوق</span></button>
+      </div>
+      <div class="control-bottom"><div class="checks"><label class="check"><input id="btcFilter" type="checkbox" checked><span>تأكيد اتجاه بيتكوين</span></label><label class="check"><input id="autoRefresh" type="checkbox"><span>تحديث كل 5 دقائق</span></label></div><span>أزواج <bdi class="num">USDT</bdi> · سيولة يومية ≥ <bdi class="num">5M</bdi></span></div>
+      <div id="progressWrap" class="progress" role="progressbar" aria-label="تقدم فحص السوق" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" hidden><div id="progressBar"></div></div>
+      <div class="scan-status" role="status" aria-live="polite"><span id="scanStatus">جاهز للفحص. لا يلزم مفتاح API.</span><span id="nextScan"></span></div>
+    </section>
+    <section class="summary" aria-label="ملخص الفحص">
+      <div class="stat"><div class="stat-label">إشارات شراء نشطة</div><div id="signalCount" class="stat-value good num">—</div><small>تُعرض عند اكتمال الشروط فقط</small></div>
+      <div class="stat"><div class="stat-label">عملات تم تحليلها</div><div id="analyzedCount" class="stat-value num">—</div><small id="coverage">من الأزواج الأعلى سيولة</small></div>
+      <div class="stat"><div class="stat-label">اتجاه بيتكوين اليومي</div><div id="btcState" class="stat-value arabic">—</div><small id="btcDetail">الإغلاق مقارنة بمتوسط 200 يوم</small></div>
+      <div class="stat"><div class="stat-label">آخر فحص</div><div id="lastScan" class="stat-value num">—</div><small id="lastScanDetail">بتوقيت جهازك</small></div>
+    </section>
+    <div id="notice" class="notice" role="alert" hidden></div>
+    <div class="results-heading"><div class="heading-title"><h2>فرص الشراء</h2><span id="resultBadge" class="count">0</span></div><span>الأهداف: <bdi class="num">3R / 5R / 8R</bdi></span></div>
+    <div id="emptyState" class="empty"><div class="empty-mark" aria-hidden="true">⌕</div><h3 id="emptyTitle">السوق يتغيّر. ابدأ الفحص.</h3><p id="emptyText">يرصد المحرك الاختراقات والارتدادات مع الاتجاه الصاعد، ويعرض سعر الدخول والأهداف ووقف الخسارة لكل فرصة مطابقة.</p><p class="small" id="emptySub">بيانات Binance العامة · شموع مغلقة فقط · يحتاج اتصالًا بالإنترنت</p></div>
+    <section id="signals" class="signals" aria-label="نتائج إشارات الشراء"></section>
+    <details class="method"><summary>كيف تُحسب الإشارات والأهداف؟</summary><div class="method-content">
+      <p><strong>هذه قواعد فنية قابلة للفحص، ولم تُختبر ربحيتها تاريخيًا داخل هذا الملف.</strong> تراقب صفقات محتملة لأيام إلى أسابيع؛ لا تتنبأ بزمن بلوغ الهدف ولا تضمن الوصول إليه.</p>
+      <ul>
+        <li><strong>اختيار السوق:</strong> أزواج سبوت USDT المتاحة للتداول، بحد أدنى 5 ملايين USDT لحجم التداول خلال 24 ساعة. تُستبعد قائمة معروفة من العملات المستقرة والنقدية والرموز ذات الرافعة؛ قد لا تشمل القائمة كل إدراج جديد.</li>
+        <li><strong>تأكيد يومي:</strong> إغلاق العملة فوق EMA200، وEMA50 فوق EMA200 وصاعد خلال آخر 5 شموع. مع تفعيل فلتر بيتكوين، يُشترط أيضًا إغلاق BTC اليومي فوق EMA200.</li>
+        <li><strong>إشارة 4 ساعات:</strong> الإغلاق فوق EMA20 وفوق EMA50، وEMA20 أعلى من EMA50 وصاعد، وRSI14 بين 48 و70. يلزم اختراق أعلى قمة للشموع العشرين السابقة بحجم ≥ 1.5× متوسط آخر 20 شمعة، أو ارتداد قرب EMA20 بكسر قمة الشمعة السابقة وحجم ≥ 1.1×. تُرفض الحركة الممتدة أكثر من 2.5 ATR فوق EMA20.</li>
+        <li><strong>الدخول:</strong> أفضل سعر عرض بيع عند فحص الإشارة، بشرط ألا يتجاوز فرق العرض والطلب 0.3% وألا يبتعد عن إغلاق الإشارة بأكثر من 0.75 ATR أو 1.5%. السعر لقطة وقتية وليس أمر شراء منفذًا.</li>
+        <li><strong>الوقف:</strong> الأقل من قاع آخر 10 شموع ناقص 0.5 ATR14، أو إغلاق الإشارة ناقص 2 ATR14. يُقرب للأسفل حسب خطوة سعر الزوج. تُرفض الإشارة إذا تجاوز بُعد الوقف الحد المختار؛ لا يُضيّق الوقف لإجبارها على المرور.</li>
+        <li><strong>الأهداف:</strong> R = الدخول − الوقف. الأهداف هي الدخول + 3R، ثم + 5R، ثم + 8R، وتُقرب للأسفل وفق خطوة السعر. الحد الأدنى المختار يرشّح الهدف الثالث ولا يرفع الأهداف اصطناعيًا. الأهداف حسابية ولا تُعدل عند وجود مقاومات؛ راجع الرسم قبل اتخاذ قرار.</li>
+        <li><strong>حداثة الإشارة:</strong> الحساب من آخر شمعة مغلقة فقط، ويُشترط اكتمال بياناتها. تُستبعد الإشارة إذا لامست الشمعة الجارية وقفها أو هدفها الأول. تنتهي صلاحية عرض لقطة الدخول بعد 5 دقائق أو عند إغلاق شمعة 4 ساعات جديدة، أيهما أسبق، ويلزم إعادة الفحص. لا توجد مراقبة لحظية بين الفحوص.</li>
+      </ul>
+      <p>كل الأسعار بوحدة USDT. النسب وR قبل الرسوم والانزلاق؛ بُعد الوقف ليس نسبة المخاطرة من رأس مالك. وقف الخسارة مستوى مقترح يجب إعداده في منصتك، وقد يكون التنفيذ بسعر أسوأ عند التقلب.</p>
+      <p>مصدر البيانات: <a href="https://developers.binance.com/docs/binance-spot-api-docs/faqs/market_data_only" target="_blank" rel="noopener noreferrer">واجهات Binance العامة</a> و<a href="https://developers.binance.com/docs/binance-spot-api-docs/rest-api/market-data-endpoints" target="_blank" rel="noopener noreferrer">توثيق الشموع والأسعار</a>. عند تعذّر الاتصال أو حجب المصدر في منطقتك، يظهر خطأ ولا تُنشأ بيانات بديلة.</p>
+    </div></details>
+    <footer class="foot"><p>الإشارات والأهداف تقديرية وليست ضمانًا للربح أو نصيحة مالية شخصية. قد تخسر رأس المال. يعرض المحرك فرص شراء سبوت فقط؛ لا يتصل بحسابك ولا ينفذ أوامر.</p><span class="version">MADAR · 1.0</span></footer>
+  </main>
+  <script>
+  'use strict';
+  (() => {
+    // Standalone, dependency-free spot scanner. No credentials, orders or synthetic market data.
+    // API reference: https://developers.binance.com/docs/binance-spot-api-docs/faqs/market_data_only
+    const H4 = 4 * 60 * 60 * 1000, DAY = 24 * 60 * 60 * 1000;
+    const TTL = 5 * 60 * 1000, MIN_VOLUME = 5e6;
+    const HOSTS = ['https://data-api.binance.vision', 'https://api.binance.com'];
+    const EXCLUDED = new Set(['USDT','USDC','BUSD','FDUSD','TUSD','USDP','DAI','USDD','USDE','USD1','EURI','EUR','AEUR','EURU','EURC','PAX','UST','USTC','VAI','DUSD','RLUSD','PYUSD','GUSD','SUSD','USDS','SUSDS','USDG','USDF','BFUSD','USDU','USDJ','USDX','XUSD','EURCV','PAXG','XAUT','GBP','AUD','BRL','TRY','RUB','BIDR','IDRT','NGN','UAH','ZAR','PLN','ARS','JPY','MXN','RON']);
+    const $ = id => document.getElementById(id);
+    const state = {run:null, signals:[], lastStarted:0, next:0, cooldown:0, marketTime:0, syncMono:0, finished:false, staleNotice:false};
+    const avg = values => values.length ? values.reduce((a,b) => a+b,0)/values.length : NaN;
+    const last = values => values[values.length - 1];
+    const escape = value => String(value).replace(/[&<>"']/g,c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const fixed = (n,d=1) => Number(n).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
+    const compact = n => n >= 1e9 ? fixed(n/1e9,2)+'B' : n >= 1e6 ? fixed(n/1e6,1)+'M' : fixed(n,0);
+    const timeText = ms => new Date(ms).toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
+    const dateText = ms => new Date(ms).toLocaleString('ar-EG',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'});
+    const marketNow = () => state.marketTime ? state.marketTime + performance.now() - state.syncMono : Date.now();
 
+    function ema(values,period) {
+      const out = Array(values.length).fill(null);
+      if (values.length < period) return out;
+      let value = avg(values.slice(0,period)); out[period-1] = value;
+      const alpha = 2/(period+1);
+      for (let i=period;i<values.length;i++) {value += alpha*(values[i]-value);out[i]=value;}
+      return out;
+    }
+    function rsi(values,period=14) {
+      if (values.length <= period) return NaN;
+      let gain=0,loss=0;
+      for(let i=1;i<=period;i++){const d=values[i]-values[i-1];gain+=Math.max(d,0);loss+=Math.max(-d,0);}
+      gain/=period;loss/=period;
+      for(let i=period+1;i<values.length;i++){const d=values[i]-values[i-1];gain=(gain*(period-1)+Math.max(d,0))/period;loss=(loss*(period-1)+Math.max(-d,0))/period;}
+      return loss===0 ? (gain===0 ? 50 : 100) : 100-100/(1+gain/loss);
+    }
+    function atr(bars,period=14) {
+      if(bars.length<=period) return NaN;
+      const ranges=bars.slice(1).map((b,i)=>Math.max(b.h-b.l,Math.abs(b.h-bars[i].c),Math.abs(b.l-bars[i].c)));
+      let value=avg(ranges.slice(0,period));
+      for(let i=period;i<ranges.length;i++) value=(value*(period-1)+ranges[i])/period;
+      return value;
+    }
+    function parseBars(raw,interval,now) {
+      if(!Array.isArray(raw) || !raw.length) throw new Error('بيانات الشموع غير مكتملة.');
+      const all=raw.map(k=>({t:+k[0],o:+k[1],h:+k[2],l:+k[3],c:+k[4],v:+k[5],end:+k[6]}));
+      for(let i=0;i<all.length;i++) {
+        const b=all[i];
+        if(!Object.values(b).every(Number.isFinite)||b.o<=0||b.c<=0||b.l<=0||b.h<Math.max(b.o,b.c)||b.l>Math.min(b.o,b.c)||b.v<0||b.end!==b.t+interval-1||(i && b.t-all[i-1].t!==interval)) throw new Error('تسلسل شموع غير صالح؛ استُبعد الزوج.');
+      }
+      const closed=all.filter(b=>b.end<now);
+      // Require the latest fully closed UTC candle; never compute indicators on the open candle.
+      const expected=Math.floor(now/interval)*interval-1;
+      if(!closed.length || last(closed).end!==expected) throw new Error('الشموع متأخرة؛ لا يمكن اعتماد الإشارة.');
+      return {closed,open:all.find(b=>b.t===expected+1 && b.end>=now)||null};
+    }
+    function dailyTrend(bars) {
+      if(bars.length<210) return false;
+      const close=bars.map(b=>b.c), e50=ema(close,50), e200=ema(close,200);
+      return last(close)>last(e200) && last(e50)>last(e200) && last(e50)>e50[e50.length-6];
+    }
+    function findSetup(daily,four) {
+      if(daily.length<210||four.length<80||!dailyTrend(daily)) return null;
+      const closes=four.map(b=>b.c), e20=ema(closes,20),e50=ema(closes,50);
+      const a=atr(four), momentum=rsi(closes), b=last(four),prev=four[four.length-2];
+      if(!Number.isFinite(a)||a<=0 || !(b.c>last(e20)&&last(e20)>last(e50)&&last(e20)>e20[e20.length-4])) return null;
+      if(momentum<48||momentum>70||(b.c-last(e20))/a>2.5) return null;
+      const baseVol=avg(four.slice(-21,-1).map(x=>x.v));
+      const volRatio=baseVol>0 ? b.v/baseVol : 0;
+      const resistance=Math.max(...four.slice(-21,-1).map(x=>x.h));
+      const breakout=b.c>resistance&&b.c>b.o&&volRatio>=1.5;
+      const recentLow=Math.min(...four.slice(-3).map(x=>x.l));
+      const nearAverage=four.slice(-3).some((x,i)=>x.l<=e20[e20.length-3+i]*1.01);
+      const pullback=nearAverage&&recentLow>=last(e50)*0.985&&b.c>prev.h&&b.c>b.o&&volRatio>=1.1;
+      if(!breakout&&!pullback) return null;
+      const stopRaw=Math.min(Math.min(...four.slice(-10).map(x=>x.l))-0.5*a,b.c-2*a);
+      if(stopRaw<=0||stopRaw>=b.c) return null;
+      return {type:breakout?'اختراق مقاومة':'ارتداد مع الاتجاه',atr:a,rsi:momentum,volRatio,close:b.c,stopRaw,candleEnd:b.end};
+    }
+    function stepDigits(step) {
+      const s=String(step).toLowerCase();
+      if(s.includes('e-')) return Math.min(12,Number(s.split('e-')[1]));
+      return Math.min(12,(s.split('.')[1]||'').replace(/0+$/,'').length);
+    }
+    function roundStep(value,step) {
+      const tick=Number(step),digits=stepDigits(step);
+      if(!(tick>0)) return NaN;
+      return Number((Math.floor(value/tick+1e-8)*tick).toFixed(digits));
+    }
+    function makePlan(setup,ticker,meta,open,config,now) {
+      const bid=Number(ticker.bidPrice),entry=Number(ticker.askPrice),stamp=Number(ticker.closeTime);
+      if(ticker.symbol!==meta.symbol||![stamp,bid,entry,Number(ticker.priceChangePercent)].every(Number.isFinite)||now-stamp>120000||stamp-now>10000||!(bid>0&&entry>=bid)) return null;
+      if((entry-bid)/entry>0.003||Math.abs(entry-setup.close)>Math.min(0.75*setup.atr,setup.close*0.015)) return null;
+      if(Number(ticker.quoteVolume)<MIN_VOLUME||!Number.isFinite(Number(ticker.quoteVolume))) return null;
+      const filter=meta.filters.find(f=>f.filterType==='PRICE_FILTER');
+      if(!filter||!(+filter.tickSize>0)) return null;
+      const stop=roundStep(setup.stopRaw,filter.tickSize),risk=entry-stop,riskPct=risk/entry*100;
+      if(!(stop>0&&risk>0)||riskPct>config.maxStop||riskPct<0.3) return null;
+      const targets=[3,5,8].map(r=>roundStep(entry+r*risk,filter.tickSize));
+      const maxPrice=+filter.maxPrice||Infinity,minPrice=+filter.minPrice||0;
+      if(stop<minPrice||targets[2]>maxPrice||targets.some((x,i)=>!Number.isFinite(x)||x<=(i?targets[i-1]:entry))) return null;
+      const upside=(targets[2]-entry)/entry*100;
+      if(upside+1e-7<config.minTarget) return null;
+      // A missing open candle cannot establish whether this closed-candle setup has already failed.
+      if(!open||open.l<=stop||open.h>=targets[0]||entry<=stop||entry>=targets[0]) return null;
+      const expires=Math.min(now+TTL,setup.candleEnd+1+H4);
+      if(expires<=now) return null;
+      return {...setup,symbol:meta.symbol,base:meta.baseAsset,entry,stop,risk,riskPct,targets,upside,digits:stepDigits(filter.tickSize),volume:Number(ticker.quoteVolume),change:Number(ticker.priceChangePercent),checkedAt:now,quoteAt:stamp,expires};
+    }
+    function choosePairs(info,tickers,limit) {
+      if(!info||!Array.isArray(info.symbols)||!Array.isArray(tickers)) throw new Error('تعذر قراءة قائمة السوق.');
+      const tickMap=new Map(tickers.map(t=>[t.symbol,t]));
+      return info.symbols.filter(s=>s.status==='TRADING'&&s.isSpotTradingAllowed===true&&s.quoteAsset==='USDT'&&Array.isArray(s.filters)&&/^[A-Z0-9]{1,30}USDT$/.test(s.symbol)&&!EXCLUDED.has(s.baseAsset)&&!/(UP|DOWN|BULL|BEAR)$/.test(s.baseAsset)).map(meta=>({meta,ticker:tickMap.get(meta.symbol)})).filter(x=>x.ticker&&Number(x.ticker.quoteVolume)>=MIN_VOLUME&&Number(x.ticker.lastPrice)>0).sort((a,b)=>Number(b.ticker.quoteVolume)-Number(a.ticker.quoteVolume)).slice(0,limit);
+    }
+    // Expose the deterministic calculations for independent inspection; no trade execution API exists.
+    window.SwingEngine=Object.freeze({ema,rsi,atr,parseBars,dailyTrend,findSetup,makePlan,choosePairs,roundStep});
+
+    class ApiError extends Error {
+      constructor(message,status=0,retry=0){super(message);this.status=status;this.retry=retry;}
+    }
+    async function request(host,path,params,run) {
+      if(run.controller.signal.aborted) throw new DOMException('Aborted','AbortError');
+      const controller=new AbortController(),abort=()=>controller.abort();
+      run.controller.signal.addEventListener('abort',abort,{once:true});
+      const timeout=setTimeout(abort,12000);
+      try {
+        const query=new URLSearchParams(params||{}).toString();
+        const response=await fetch(host+path+(query?'?'+query:''),{signal:controller.signal,cache:'no-store',credentials:'omit',referrerPolicy:'no-referrer'});
+        if(!response.ok) {
+          const status=response.status;
+          if(status===429||status===418) {
+            const header=response.headers.get('Retry-After');
+            const retry=Math.max(60,Number(header)||(Date.parse(header)-Date.now())/1000||0);
+            state.cooldown=Date.now()+retry*1000;
+            throw new ApiError('أوقف مصدر البيانات الطلبات مؤقتًا. انتظر '+Math.ceil(retry/60)+' دقيقة قبل إعادة الفحص.',status,retry);
+          }
+          throw new ApiError(status===451||status===403?'مصدر البيانات غير متاح من هذا الاتصال أو المنطقة.':'تعذّر جلب البيانات من المصدر (HTTP '+status+').',status);
+        }
+        const data=await response.json();
+        if(data&&typeof data==='object'&&!Array.isArray(data)&&Number(data.code)<0) throw new ApiError('رفض مصدر البيانات الطلب.');
+        return data;
+      } catch(error) {
+        if(run.controller.signal.aborted||error instanceof ApiError) throw error;
+        throw new ApiError(error.name==='AbortError'?'انتهت مهلة الاتصال بمصدر البيانات.':'تعذّر الاتصال ببيانات Binance. تحقق من الإنترنت وإتاحة المصدر في منطقتك؛ قد يمنع المتصفح الطلبات المحلية.');
+      } finally {clearTimeout(timeout);run.controller.signal.removeEventListener('abort',abort);}
+    }
+    async function connect(run) {
+      let lastError;
+      for(const host of HOSTS) {
+        try {
+          const data=await request(host,'/api/v3/time',{},run);
+          if(!Number.isFinite(Number(data.serverTime))||Number(data.serverTime)<1577836800000) throw new ApiError('وقت المصدر غير صالح.');
+          state.marketTime=Number(data.serverTime);state.syncMono=performance.now();
+          run.host=host;run.asOf=marketNow();return;
+        } catch(error) {lastError=error;if(run.controller.signal.aborted||error.status===429||error.status===418) throw error;}
+      }
+      throw lastError;
+    }
+    function notice(message,error=false) {
+      $('notice').textContent=message;$('notice').className='notice'+(error?' error':'');$('notice').hidden=!message;
+    }
+    function showEmpty(title,text,sub='') {
+      $('emptyTitle').textContent=title;$('emptyText').textContent=text;$('emptySub').textContent=sub;$('emptyState').hidden=false;
+    }
+    function setBusy(busy) {
+      $('scanLabel').textContent=busy?'إيقاف الفحص':'فحص السوق';$('scanBtn').classList.toggle('stop',busy);
+      for(const id of ['universe','minTarget','maxStop','btcFilter']) $(id).disabled=busy;
+      $('progressWrap').hidden=!busy;$('signals').setAttribute('aria-busy',String(busy));
+    }
+    function progress(run) {
+      const pct=run.total?Math.round(run.processed/run.total*100):0;
+      $('progressBar').style.width=pct+'%';$('progressWrap').setAttribute('aria-valuenow',String(pct));
+      $('analyzedCount').textContent=run.analyzed;$('coverage').textContent='من '+run.total+' زوجًا · تعذّر '+run.failures;
+      $('scanStatus').textContent='جارٍ التحليل: '+run.processed+' / '+run.total+' · مطابق '+state.signals.length;
+    }
+    function price(n,digits) {return Number(n).toLocaleString('en-US',{minimumFractionDigits:digits,maximumFractionDigits:digits});}
+    function signalText(s) {
+      return ['إشارة شراء سبوت سوينج — '+s.symbol,s.type,'سعر الدخول: '+price(s.entry,s.digits)+' USDT','وقف الخسارة: '+price(s.stop,s.digits)+' USDT ('+fixed(s.riskPct)+'%)',...s.targets.map((t,i)=>'الهدف '+(i+1)+': '+price(t,s.digits)+' USDT (+'+fixed((t-s.entry)/s.entry*100)+'%)'),'إغلاق الإشارة: '+new Date(s.candleEnd+1).toISOString(),'وقت السعر: '+new Date(s.quoteAt).toISOString(),'انتهاء لقطة الدخول: '+new Date(s.expires).toISOString(),'الأسعار تقديرية قبل الرسوم والانزلاق؛ لا ضمان للربح.'].join('\n');
+    }
+    function renderSignals() {
+      const now=marketNow(),active=state.signals.filter(s=>s.expires>now);
+      $('signalCount').textContent=active.length;$('resultBadge').textContent=active.length;
+      $('emptyState').hidden=state.signals.length>0;
+      $('signals').innerHTML=state.signals.slice().sort((a,b)=>b.volRatio-a.volRatio||a.riskPct-b.riskPct).map(s=>{
+        const expired=s.expires<=now;
+        return '<article class="signal'+(expired?' expired':'')+'" data-symbol="'+escape(s.symbol)+'">'+
+          '<div class="signal-head"><div><span class="buy-tag">'+(expired?'لقطة منتهية · أعد الفحص':'إشارة شراء سبوت')+'</span><div class="pair"><strong>'+escape(s.base)+'</strong> <span>/ USDT</span></div><div class="setup-type">'+escape(s.type)+'</div></div><span class="change '+(s.change>=0?'good':'bad')+'"><bdi class="num">'+(s.change>=0?'+':'')+fixed(s.change)+'%</bdi><br><span class="muted">خلال 24 ساعة</span></span></div>'+
+          '<div class="entry-row"><div><div class="label">سعر الدخول وقت الفحص</div><bdi class="price num">'+price(s.entry,s.digits)+'</bdi><span class="subvalue">أفضل عرض بيع · USDT</span></div><div><div class="label">وقف الخسارة</div><bdi class="price num bad">'+price(s.stop,s.digits)+'</bdi><span class="subvalue">البُعد عن الدخول <bdi class="num bad">−'+fixed(s.riskPct)+'%</bdi></span></div></div>'+
+          '<div class="targets">'+s.targets.map((t,i)=>'<div class="target"><div class="target-label">الهدف '+['الأول','الثاني','الثالث'][i]+' <span class="r-label num">'+[3,5,8][i]+'R</span></div><bdi class="target-price num">'+price(t,s.digits)+'</bdi><bdi class="target-return num">+'+fixed((t-s.entry)/s.entry*100)+'%</bdi></div>').join('')+'</div>'+
+          '<div class="chips"><span class="chip">اتجاه يومي صاعد</span><span class="chip">RSI <bdi class="num">'+fixed(s.rsi)+'</bdi></span><span class="chip">الحجم <bdi class="num">'+fixed(s.volRatio,2)+'×</bdi></span><span class="chip">سيولة <bdi class="num">'+compact(s.volume)+'</bdi> USDT</span></div>'+
+          '<div class="signal-times"><span>إغلاق شمعة الإشارة: <time datetime="'+new Date(s.candleEnd+1).toISOString()+'">'+dateText(s.candleEnd+1)+'</time></span><span>وقت لقطة السعر: <time datetime="'+new Date(s.quoteAt).toISOString()+'">'+dateText(s.quoteAt)+'</time> · بتوقيت جهازك</span></div>'+
+          '<div class="signal-foot"><span class="ttl">'+(expired?'انتهت صلاحية لقطة الدخول':'لقطة وقتية · أعد التحقق قبل الدخول')+'</span><button class="copy" type="button" data-copy="'+escape(s.symbol)+'" '+(expired?'disabled':'')+'>نسخ الإشارة</button></div></article>';
+      }).join('');
+    }
+    async function analyzePair(item,run,config) {
+      const {meta}=item;
+      const dailyRaw=meta.symbol==='BTCUSDT'&&run.btcRaw?run.btcRaw:await request(run.host,'/api/v3/klines',{symbol:meta.symbol,interval:'1d',limit:320,endTime:Math.floor(run.asOf)},run);
+      const daily=parseBars(dailyRaw,DAY,run.asOf).closed;
+      if(!dailyTrend(daily)) return null;
+      const raw=await request(run.host,'/api/v3/klines',{symbol:meta.symbol,interval:'4h',limit:260,endTime:Math.floor(run.asOf)},run);
+      const parsed=parseBars(raw,H4,run.asOf),setup=findSetup(daily,parsed.closed);
+      if(!setup) return null;
+      // Fresh quote and open-candle range prevent a historical close being presented as a live entry.
+      const results=await Promise.allSettled([
+        request(run.host,'/api/v3/ticker/24hr',{symbol:meta.symbol},run),
+        request(run.host,'/api/v3/klines',{symbol:meta.symbol,interval:'4h',limit:3},run)
+      ]);
+      const failure=results.find(r=>r.status==='rejected');if(failure) throw failure.reason;
+      const now=marketNow();
+      const current=parseBars(results[1].value,H4,now);
+      if(last(current.closed).end!==setup.candleEnd) return null;
+      return makePlan(setup,results[0].value,meta,current.open,config,now);
+    }
+    async function scan() {
+      if(state.run) {state.run.cancelled=true;state.run.controller.abort();return;}
+      if(Date.now()<state.cooldown) {notice('مصدر البيانات طلب الانتظار. أعد المحاولة بعد '+Math.ceil((state.cooldown-Date.now())/60000)+' دقيقة.',true);return;}
+      if(Date.now()-state.lastStarted<15000) {notice('انتظر قليلًا بين الفحوص لتجنب تقييد الطلبات.');return;}
+      const config={limit:+$('universe').value,minTarget:+$('minTarget').value,maxStop:+$('maxStop').value,btcFilter:$('btcFilter').checked};
+      const run={controller:new AbortController(),host:'',asOf:0,processed:0,analyzed:0,failures:0,total:0,cancelled:false,fatal:null,btcRaw:null};
+      state.run=run;state.signals=[];state.lastStarted=Date.now();state.next=0;state.finished=false;state.staleNotice=false;
+      notice('');setBusy(true);renderSignals();$('progressBar').style.width='0%';$('analyzedCount').textContent='0';$('coverage').textContent='جارٍ تحميل قائمة السوق';$('btcState').textContent='—';$('btcState').className='stat-value arabic';$('btcDetail').textContent='جارٍ التحقق';$('lastScan').textContent='—';$('lastScanDetail').textContent='الفحص قيد التنفيذ';
+      $('scanStatus').textContent='جارٍ الاتصال ببيانات السوق…';$('connection').textContent='جارٍ الاتصال';$('sourceDot').classList.remove('live');
+      showEmpty('جارٍ البحث عن فرص مطابقة…','يُفحص الاتجاه والسيولة أولًا، ثم إشارة الدخول والأهداف ووقف الخسارة.','قد يستغرق الفحص نحو دقيقة أو أكثر بحسب سرعة الاتصال.');
+      let completed=false;
+      try {
+        await connect(run);
+        $('connection').textContent='متصل · Binance';$('sourceDot').classList.add('live');
+        const initial=await Promise.allSettled([
+          request(run.host,'/api/v3/exchangeInfo',{},run),request(run.host,'/api/v3/ticker/24hr',{},run),
+          request(run.host,'/api/v3/klines',{symbol:'BTCUSDT',interval:'1d',limit:320,endTime:Math.floor(run.asOf)},run)
+        ]);
+        if(initial[0].status==='rejected') throw initial[0].reason;
+        if(initial[1].status==='rejected') throw initial[1].reason;
+        const pairs=choosePairs(initial[0].value,initial[1].value,config.limit);run.total=pairs.length;
+        let btcOk=null;
+        if(initial[2].status==='fulfilled') {
+          try {
+            run.btcRaw=initial[2].value;
+            const bars=parseBars(run.btcRaw,DAY,run.asOf).closed;
+            if(bars.length<210) throw new Error('سجل بيتكوين غير كافٍ.');
+            const closes=bars.map(b=>b.c),e200=last(ema(closes,200));btcOk=last(closes)>e200;
+            $('btcState').textContent=btcOk?'صاعد':'غير مؤكد';$('btcState').classList.add(btcOk?'good':'warm');
+            $('btcDetail').textContent=(btcOk?'أعلى':'أدنى أو عند')+' EMA200 · شمعة يومية مغلقة';
+          } catch(error) {if(config.btcFilter) throw error;}
+        } else if(initial[2].reason.status===429||initial[2].reason.status===418||run.controller.signal.aborted) throw initial[2].reason;
+        if(btcOk===null) {$('btcState').textContent='غير متاح';$('btcDetail').textContent='تعذّر تأكيد بيانات بيتكوين';}
+        if(config.btcFilter&&btcOk===null) throw new Error('تعذّر تأكيد اتجاه بيتكوين؛ لم يُستكمل الفحص.');
+        if(config.btcFilter&&!btcOk) {
+          notice('فلتر بيتكوين فعّال: الإغلاق اليومي ليس فوق EMA200، لذلك لا يسمح المحرك بإشارات شراء في هذا الفحص.');
+          showEmpty('لا إشارات مع فلتر السوق الحالي','اتجاه بيتكوين اليومي لا يحقق شرط الفلتر. انتظر فحصًا لاحقًا، أو غيّر إعداد الفلتر إذا أردت تحليل العملات دون هذا الشرط.');
+          $('coverage').textContent='حُدد '+run.total+' زوجًا · لم يبدأ تحليلها';completed=true;return;
+        }
+        if(!pairs.length) {showEmpty('لا توجد أزواج تستوفي حد السيولة','لم تتوفر أزواج سبوت USDT مؤهلة بحجم يومي لا يقل عن 5 ملايين USDT.');completed=true;return;}
+        let cursor=0;
+        async function worker() {
+          while(cursor<pairs.length&&!run.controller.signal.aborted) {
+            const item=pairs[cursor++];
+            try {
+              const signal=await analyzePair(item,run,config);
+              if(run.controller.signal.aborted) return;
+              run.analyzed++;
+              if(signal) {state.signals.push(signal);renderSignals();}
+            } catch(error) {
+              if(run.controller.signal.aborted) return;
+              run.failures++;
+              if(error.status===429||error.status===418||run.failures>=8) {
+                run.fatal=error.status===429||error.status===418?error:new Error('تكررت أخطاء البيانات أو الاتصال؛ توقّف الفحص. أعد المحاولة لاحقًا.');
+                run.controller.abort();return;
+              }
+            }
+            run.processed++;progress(run);
+          }
+        }
+        const workers=await Promise.allSettled(Array.from({length:Math.min(3,pairs.length)},()=>worker()));
+        const failure=workers.find(r=>r.status==='rejected');if(failure) throw failure.reason;
+        if(run.fatal) throw run.fatal;
+        if(run.cancelled) throw new DOMException('Aborted','AbortError');
+        if(!run.analyzed&&run.failures) throw new Error('لم يكتمل تحليل أي زوج بسبب أخطاء البيانات؛ لا يمكن تقييم وجود فرص شراء.');
+        completed=true;
+        if(run.failures) notice('نتائج جزئية: تعذّر تحليل '+run.failures+' من '+run.total+' زوجًا. الإشارات المعروضة تخص الأزواج التي اكتملت بياناتها فقط.');
+        if(!state.signals.length) showEmpty('لا توجد إشارة شراء مطابقة الآن','لم تتكامل شروط الاتجاه والدخول والهدف والوقف في العملات التي تم تحليلها. الهدف المرتفع يضيّق نطاق النتائج؛ غياب الإشارات نتيجة طبيعية.','آخر '+run.analyzed+' زوجًا تم تحليلها · لا توجد إشارات مُولّدة لإكمال الشاشة.');
+      } catch(error) {
+        if(run.cancelled) {
+          notice('أُوقف الفحص. النتائج، إن ظهرت، جزئية وتخص الأزواج المكتملة فقط.');
+          if(!state.signals.length) showEmpty('تم إيقاف الفحص','اضغط «فحص السوق» لبدء فحص جديد.');
+        } else {
+          notice((run.fatal||error).message+(state.signals.length?' النتائج المعروضة جزئية.':''),true);
+          $('connection').textContent='تعذّر إكمال الفحص';$('sourceDot').classList.remove('live');
+          if(!state.signals.length) showEmpty('لم يكتمل الاتصال أو التحليل','تحقق من اتصال الإنترنت وإتاحة بيانات Binance في منطقتك، ثم أعد الفحص. لا يمكن عرض إشارات دون بيانات موثوقة.');
+        }
+      } finally {
+        run.controller.abort();setBusy(false);state.run=null;state.finished=true;
+        renderSignals();$('lastScan').textContent=timeText(Date.now());$('lastScanDetail').textContent=completed?'اكتمل · بتوقيت جهازك':'فحص جزئي أو غير مكتمل';
+        $('scanStatus').textContent=(completed?'اكتمل الفحص':'انتهى الفحص دون اكتمال')+' · '+run.analyzed+' عملة محللة · '+state.signals.length+' إشارة';
+        if($('autoRefresh').checked&&!run.cancelled) state.next=Math.max(Date.now()+TTL,state.cooldown);
+        if(run.cancelled) {$('autoRefresh').checked=false;saveSettings();}
+      }
+    }
+    function saveSettings() {
+      try {localStorage.setItem('madar-settings-v1',JSON.stringify({universe:$('universe').value,minTarget:$('minTarget').value,maxStop:$('maxStop').value,btcFilter:$('btcFilter').checked,autoRefresh:$('autoRefresh').checked}));}catch(_){}
+    }
+    function loadSettings() {
+      try {
+        const settings=JSON.parse(localStorage.getItem('madar-settings-v1')||'null');if(!settings)return;
+        for(const id of ['universe','minTarget','maxStop']) if([...$(id).options].some(o=>o.value===settings[id])) $(id).value=settings[id];
+        for(const id of ['btcFilter','autoRefresh']) if(typeof settings[id]==='boolean') $(id).checked=settings[id];
+      }catch(_){}
+    }
+    $('scanBtn').addEventListener('click',scan);
+    for(const id of ['universe','minTarget','maxStop','btcFilter','autoRefresh']) $(id).addEventListener('change',()=>{
+      saveSettings();
+      if(id==='autoRefresh') {state.next=$(id).checked&&state.finished&&!state.run?Math.max(Date.now()+TTL,state.cooldown):0;return;}
+      if(state.finished) {
+        state.signals=[];renderSignals();state.staleNotice=false;
+        notice('تغيّرت إعدادات الفحص. اضغط «فحص السوق» لحساب نتائج مطابقة لها.');
+        showEmpty('الإعدادات الجديدة جاهزة','ابدأ فحصًا جديدًا لعرض فرص تطابق القيم المختارة.');
+      }
+    });
+    $('signals').addEventListener('click',async event=>{
+      const button=event.target.closest('[data-copy]');if(!button)return;
+      const signal=state.signals.find(s=>s.symbol===button.dataset.copy);
+      if(!signal||signal.expires<=marketNow()){renderSignals();return;}
+      const value=signalText(signal);
+      try {
+        if(!navigator.clipboard||!window.isSecureContext) throw new Error('Clipboard unavailable');
+        await navigator.clipboard.writeText(value);button.textContent='تم النسخ';setTimeout(()=>{if(button.isConnected)button.textContent='نسخ الإشارة';},1800);
+      } catch(_) {
+        const article=button.closest('article');let area=article.querySelector('textarea');
+        if(!area){area=document.createElement('textarea');area.className='manual-copy';area.readOnly=true;area.setAttribute('aria-label','نص الإشارة للنسخ اليدوي');article.append(area);}
+        area.value=value;area.focus();area.select();button.textContent='حدد النص وانسخه';
+      }
+    });
+    function tick() {
+      const now=Date.now();
+      if(state.next&&$('autoRefresh').checked) {
+        const left=Math.max(0,Math.ceil((state.next-now)/1000));
+        $('nextScan').textContent='الفحص التالي '+Math.floor(left/60)+':'+String(left%60).padStart(2,'0');
+        if(left===0&&!state.run&&!document.hidden) {state.next=0;scan();}
+      } else $('nextScan').textContent='';
+      if(state.signals.length) {
+        let changed=false;
+        for(const s of state.signals)if(s.expires<=marketNow()&&!s.expiredRendered){s.expiredRendered=true;changed=true;}
+        if(changed)renderSignals();
+        if(state.signals.every(s=>s.expires<=marketNow())&&!state.staleNotice&&!state.run) {state.staleNotice=true;notice('انتهت صلاحية لقطات الدخول. أعد الفحص قبل الاعتماد على أي سعر أو إشارة.');}
+      }
+    }
+    loadSettings();setInterval(tick,1000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)tick();});
+    window.addEventListener('offline',()=>{if(state.run){state.run.fatal=new Error('انقطع اتصال الإنترنت أثناء الفحص.');state.run.controller.abort();}});
+  })();
+  </script>
+</body>
+</html>
