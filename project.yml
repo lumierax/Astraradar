@@ -1,0 +1,19 @@
+name: Madar
+options:
+  bundleIdPrefix: com.madar
+settings:
+  base:
+    IPHONEOS_DEPLOYMENT_TARGET: 16.0
+targets:
+  Madar:
+    type: application
+    platform: iOS
+    sources: [Madar]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.madar.swing
+        INFOPLIST_FILE: Madar/Info.plist
+        CODE_SIGN_ENTITLEMENTS: Madar/Madar.entitlements
+        SWIFT_VERSION: 5.0
+    info:
+      path: Madar/Info.plist
